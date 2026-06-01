@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Filmes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+  <div class="page-glow"></div>
+
+  <header class="site-header">
+    <p class="brand-tag">powered by The Movie DB</p>
+    <h1 class="brand-mark">Catálogo de Filmes</h1>
+
+    <div class="search-bar">
+      <input id="search" class="search-field" type="text" placeholder="Buscar filme..." autocomplete="off">
+      <button id="btnSearch" class="search-button">Buscar</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <p id="message" class="status-message"></p>
+    <div id="movie-list" class="movie-list"></div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

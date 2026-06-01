@@ -1,0 +1,275 @@
+:root {
+  --bg: #faf6f1;
+  --bg-soft: #f3ebe3;
+  --surface: #ffffff;
+  --line: rgba(60, 42, 36, 0.08);
+  --line-strong: rgba(60, 42, 36, 0.16);
+  --text: #36302c;
+  --text-dim: #a89c93;
+  --accent: #c98b86;
+  --accent-soft: rgba(201, 139, 134, 0.14);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-glow {
+  position: fixed;
+  top: -280px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(201, 139, 134, 0.16) 0%, transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-header {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 92px 32px 44px;
+  text-align: center;
+}
+
+.brand-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.brand-mark {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-size: clamp(2.8rem, 6.5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  max-width: 520px;
+  margin: 40px auto 0;
+}
+
+.search-field {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 15px 24px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: 0 4px 14px rgba(90, 60, 50, 0.05);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-field::placeholder {
+  color: var(--text-dim);
+}
+
+.search-field:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px rgba(201, 139, 134, 0.18);
+}
+
+.search-button {
+  background: var(--accent);
+  color: #fffaf8;
+  border: none;
+  border-radius: 999px;
+  padding: 0 30px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.25s ease;
+}
+
+.search-button:hover {
+  background: #b87a75;
+}
+
+.search-button:active {
+  transform: scale(0.97);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 32px 100px;
+}
+
+.status-message {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.98rem;
+  padding: 60px 16px;
+}
+
+.status-message.is-error {
+  color: #c2706a;
+}
+
+.status-message:empty {
+  display: none;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+  gap: 34px 24px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: rise 0.55s ease backwards;
+}
+
+.card-poster-wrap {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  box-shadow: 0 12px 28px rgba(90, 60, 50, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.movie-card:hover .card-poster-wrap {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 40px rgba(90, 60, 50, 0.16);
+}
+
+.card-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.movie-card:hover .card-poster {
+  transform: scale(1.04);
+}
+
+.card-rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(90, 60, 50, 0.12);
+}
+
+.card-rating::before {
+  content: "\2605";
+  font-size: 0.76rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 4px;
+}
+
+.card-title {
+  font-family: "Fraunces", serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.22;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-year {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.card-overview {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+  margin-top: 8px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 60px 20px 30px;
+  }
+
+  .content {
+    padding: 16px 20px 76px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-button {
+    padding: 14px;
+  }
+
+  .movie-list {
+    grid-template-columns: repeat(auto-fill, minmax(142px, 1fr));
+    gap: 26px 16px;
+  }
+}
