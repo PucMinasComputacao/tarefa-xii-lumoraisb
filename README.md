@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Bzc59wLb)
 # Trabalho Prático - Semana 12
 
 Nesta atividade, você vai utilizar a Fetch API para consumir dados reais de filmes a partir da The Movie DB (TMDBLinks to an external site.) e montar uma página que liste os resultados em cards, incluindo uma funcionalidade de pesquisa ou filtro. A ideia é que você pratique o fluxo completo de requisição assíncrona → tratamento dos dados → renderização no DOM → interação do usuário.
